@@ -24,7 +24,7 @@
 | price              | integer    | null: false                    |
 | condition_id       | integer    | null: false                    |
 | postage_id         | integer    | null: false                    |
-| send_area_id       | integer    | null: false                    |
+| first_add_id       | integer    | null: false                    |
 | send_day_id        | integer    | null: false                    |
 | category_id        | integer    | null: false                    |
 | user               | references | null: false, foreign_key: true |
