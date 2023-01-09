@@ -5,35 +5,40 @@
 | ------------------ | ---------- | ------------------------------ |
 | nickname           | string     | null: false                    |
 | email              | string     | null: false, UNIQUE            |
-| password           | string     | null: false                    |
-| name               | string     | null: false                    |
-| birthday           | string     | null: false                    |
+| encrypted_password | string     | null: false                    |
+| first_name         | string     | null: false                    |
+| second_name        | string     | null: false                    |
+| first_name(kana)   | string     | null: false                    |
+| second_name(kana)  | string     | null: false                    |
+| birthday           | date       | null: false                    |
 
 ### Association
 - has_many :items
-- has_many :historys
+- has_many :orders
 
 ## itemsテーブル
 | Column             | Type       | Options                        |
 | ------------------ | -----------| ------------------------------ |
 | name               | string     | null: false                    |
 | text               | text       | null: false                    |
-| category           | string     | null: false                    |
 | price              | integer    | null: false                    |
+| condition          | string     | null: false                    |
+| postage            | string     | null: false                    |
+| send_area          | string     | null: false                    |
+| send_days          | string     | null: false                    |
+| category           | string     | null: false                    |
 | seller             | string     | null: false                    |
-| user_id            | references | null: false, foreign_key: true |
+| user               | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
-- has_one :history
+- has_one :order
 
 ## ordersテーブル
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
-| buyer              | string     | null: false                    |
-| name               | string     | null: false                    |
-| user_id            | references | null: false, foreign_key: true |
-| item_id            | references | null: false, foreign_key: true |
+| user               | references | null: false, foreign_key: true |
+| item               | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
@@ -44,9 +49,12 @@
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
 | postalcode         | integer    | null: false                    |
-| add                | string     | null: false                    |
+| add_1              | string     | null: false                    |
+| add_2              | string     | null: false                    |
+| add_3              | integer    | null: false                    |
+| add_4              | string     | null: false                    |
 | tel                | integer    | null: false                    |
-| order_id           | references | null: false, foreign_key: true |
+| order              | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :order
