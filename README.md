@@ -4,12 +4,12 @@
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
 | nickname           | string     | null: false                    |
-| email              | string     | null: false, UNIQUE            |
+| email              | string     | null: false, unique: true      |
 | encrypted_password | string     | null: false                    |
 | first_name         | string     | null: false                    |
 | second_name        | string     | null: false                    |
-| first_name(kana)   | string     | null: false                    |
-| second_name(kana)  | string     | null: false                    |
+| first_name_kana    | string     | null: false                    |
+| second_name_kana   | string     | null: false                    |
 | birthday           | date       | null: false                    |
 
 ### Association
@@ -22,13 +22,15 @@
 | name               | string     | null: false                    |
 | text               | text       | null: false                    |
 | price              | integer    | null: false                    |
-| condition          | string     | null: false                    |
-| postage            | string     | null: false                    |
-| send_area          | string     | null: false                    |
-| send_days          | string     | null: false                    |
-| category           | string     | null: false                    |
-| seller             | string     | null: false                    |
+| condition_id       | integer    | null: false                    |
+| postage_id         | integer    | null: false                    |
+| send_area_id       | integer    | null: false                    |
+| send_day_id        | integer    | null: false                    |
+| category_id        | integer    | null: false                    |
 | user               | references | null: false, foreign_key: true |
+# ActiveHash（プルダウン形式）を使用するカラムは、カラム名(単数系)の末尾に「_id」をつける
+# ActiveHashファイルに対応するid番号が保存されるので、カラムの型は整数型になる
+
 
 ### Association
 - belongs_to :user
@@ -48,12 +50,12 @@
 ## shipsテーブル
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
-| postalcode         | integer    | null: false                    |
-| add_1              | string     | null: false                    |
-| add_2              | string     | null: false                    |
-| add_3              | integer    | null: false                    |
-| add_4              | string     | null: false                    |
-| tel                | integer    | null: false                    |
+| postalcode         | string     | null: false                    |
+| first_add_id       | integer    | null: false                    |
+| second_add         | string     | null: false                    |
+| address            | string     | null: false                    |
+| building           | string     | null: false                    |
+| tel                | string     | null: false                    |
 | order              | references | null: false, foreign_key: true |
 
 ### Association
