@@ -8,14 +8,13 @@ class User < ApplicationRecord
   has_many :orders
 
   validates :nickname, presence: true
-  validates :first_name, presence: true, inclusion: { in: [/\A[一-龥]+\z/] }
-  validates :second_name, presence: true, inclusion: { in: [/\A[一-龥]+\z/] }
-  validates :first_name_kana, presence: true, inclusion: { in: [/\A[ァ-ヶー－]+\z/]}
-  validates :second_name_kana, presence: true, inclusion: { in: [/\A[ァ-ヶー－]+\z/]}
+  validates :email, uniqueness: true
+  validates :password, presence: true, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i }
+  validates :first_name, presence: true, format: { with: /\A[一-龥]+\z/ }
+  validates :second_name, presence: true, format: { with: /\A[一-龥]+\z/ }
+  validates :first_name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }
+  validates :second_name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }
   validates :birthday, presence: true
 
 
 end
-
-# 1つのワードの指定
-#validates :カラム名, inclusion: { in: ["検証したい文字"] }
