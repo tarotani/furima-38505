@@ -8,9 +8,9 @@ class User < ApplicationRecord
   #has_many :orders
 
   validates :nickname, presence: true
-  validates :password, presence: true, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i }
-  validates :first_name, presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
-  validates :second_name, presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
+  validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i }
+  validates :first_name, presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々]/ }
+  validates :second_name, presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々]/ }
   validates :first_name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }
   validates :second_name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }
   validates :birthday, presence: true
