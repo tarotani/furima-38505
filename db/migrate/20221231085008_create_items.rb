@@ -10,7 +10,12 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer    :send_day_id,    null: false
       t.integer    :category_id,    null: false
       t.references :user,           null: false, foreign_key: true
-      t.integer    :genre_id,    null: false
+      
+      t.integer    :genre_id,       null: false
+      t.integer    :conditions_id,  null: false
+      t.integer    :postages_id,    null: false
+      t.integer    :firsts_add_id,  null: false
+      t.integer    :sends_day_id,   null: false
 
       t.timestamps
     end
