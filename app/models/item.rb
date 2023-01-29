@@ -8,7 +8,7 @@ class Item < ApplicationRecord
   belongs_to :first_add__id, optional: true
   belongs_to :send_day__id, optional: true
 
-  #belongs_to :user, optional: true
+  belongs_to :user, optional: true
   #has_one :order
 
   validates :image, presence: true
