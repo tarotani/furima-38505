@@ -48,11 +48,6 @@ ActiveRecord::Schema.define(version: 2023_01_21_071652) do
     t.integer "send_day_id", null: false
     t.integer "category_id", null: false
     t.bigint "user_id", null: false
-    t.integer "genre_id", null: false
-    t.integer "conditions_id", null: false
-    t.integer "postages_id", null: false
-    t.integer "firsts_add_id", null: false
-    t.integer "sends_day_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_items_on_user_id"
