@@ -54,7 +54,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Price is not a number")
       end
 
-      it "confition_idが空では登録できない" do
+      it "condition_idが空では登録できない" do
         @item.condition_id = ""
         @item.valid?
 
