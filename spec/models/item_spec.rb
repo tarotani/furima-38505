@@ -42,10 +42,16 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Price can't be blank")
       end
 
-      it "priceが¥300~¥9,999,999以外は登録できない" do
+      it "priceが¥300未満では登録できない" do
         @item.price = "200"
         @item.valid?
         expect(@item.errors.full_messages).to include("Price must be greater than or equal to 300")
+      end
+
+      it "priceが¥9,999,999を超えると登録できない" do
+        @item.price = "999999999"
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price must be less than or equal to 99999999")
       end
 
       it "priceが半角数値以外は登録できない" do
@@ -54,35 +60,47 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Price is not a number")
       end
 
-      it "condition_idが空では登録できない" do
-        @item.condition_id = ""
+      it "condition_idが「---」では登録できない" do
+        @item.condition_id = "1"
         @item.valid?
 
         expect(@item.errors.full_messages).to include("Condition can't be blank")
       end
 
-      it "postage_idが空では登録できない" do
-        @item.postage_id = ""
+      it "postage_idが「---」では登録できない" do
+        @item.postage_id = "1"
         @item.valid?
         expect(@item.errors.full_messages).to include("Postage can't be blank")
       end
 
-      it "first_add_idが空では登録できない" do
-        @item.first_add_id = ""
+      it "first_add_idが「---」では登録できない" do
+        @item.first_add_id = "1"
         @item.valid?
         expect(@item.errors.full_messages).to include("First add can't be blank")
       end
 
-      it "send_day_idが空では登録できない" do
-        @item.send_day_id = ""
+      it "send_day_idが「---」では登録できない" do
+        @item.send_day_id = "1"
         @item.valid?
         expect(@item.errors.full_messages).to include("Send day can't be blank")
       end
 
-      it "category_idが空では登録できない" do
-        @item.category_id = ""
+      it "category_idが「---」では登録できない" do
+        @item.category_id = "1"
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
+      end
+
+      it "imageが空では登録できない" do
+        @item.image = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Image can't be blank")
+      end
+
+      it "user情報が空では登録できない" do
+        @item.user = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("User must exist")
       end
     end
   end
