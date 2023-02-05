@@ -9,12 +9,8 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer    :first_add_id,   null: false
       t.integer    :send_day_id,    null: false
       t.integer    :category_id,    null: false
-<<<<<<< Updated upstream
       t.integer    :user,           null: false, foreign_key: true
       
-=======
-      t.references :user,           null: false, foreign_key: true
->>>>>>> Stashed changes
       t.timestamps
     end
   end
