@@ -49,9 +49,9 @@ RSpec.describe Item, type: :model do
       end
 
       it "priceが¥9,999,999を超えると登録できない" do
-        @item.price = "999999999"
+        @item.price = "99999999"
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be less than or equal to 99999999")
+        expect(@item.errors.full_messages).to include("Price must be less than or equal to 9999999")
       end
 
       it "priceが半角数値以外は登録できない" do
