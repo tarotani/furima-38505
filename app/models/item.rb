@@ -9,6 +9,7 @@ class Item < ApplicationRecord
   belongs_to :send_day__id,optional: true
 
   belongs_to :user
+  belongs_to :postage
   #has_one :order
 
   validates :image, presence: true
