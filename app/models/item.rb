@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
+  #active_storageとのアソシエーション
   has_one_attached :image
   extend ActiveHash::Associations::ActiveRecordExtensions
 
@@ -8,9 +9,17 @@ class Item < ApplicationRecord
   belongs_to :first_add__id,optional: true
   belongs_to :send_day__id,optional: true
 
+  #テーブル間のアソシエーション
   belongs_to :user
-  belongs_to :postage
   #has_one :order
+
+ #アクティブハッシュとのアソシエーション
+  belongs_to :postage
+  belongs_to :category
+  belongs_to :condition
+  belongs_to :first_add
+  belongs_to :send_day
+
 
   validates :image, presence: true
   validates :name, presence: true
