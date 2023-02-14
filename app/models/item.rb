@@ -11,7 +11,7 @@ class Item < ApplicationRecord
 
   #テーブル間のアソシエーション
   belongs_to :user
-  #has_one :order
+  has_one :order
 
  #アクティブハッシュとのアソシエーション
   belongs_to :postage
