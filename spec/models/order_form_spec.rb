@@ -4,6 +4,17 @@ RSpec.describe OrderForm, type: :model do
   before do
     @order_form = FactoryBot.build(:order_form)
   end
+  #user_idやitem_idといった外部キーに数値を直接渡すのは良い実装ではないため、FactoryBotでuser、item情報をそれぞれ作成
+  before do
+    user = FactoryBot.create(:user)
+    @order_form = FactoryBot.build(:order_form, user_id: user.id)
+  end
+
+  before do
+    item = FactoryBot.create(:item)
+    @order_form = FactoryBot.build(:order_form, item_id: item.id)
+  end
+  #user_idやitem_idといった外部キーに数値を直接渡すのは良い実装ではないため、FactoryBotでuser、item情報をそれぞれ作成
 
   describe '配送先情報の保存' do
     context '配送先情報の保存ができるとき' do
