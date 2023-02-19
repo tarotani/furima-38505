@@ -49,7 +49,7 @@ RSpec.describe OrderForm, type: :model do
         @order_form.building = nil
         expect(@order_form).to be_valid
       end
-      it '電話番号が11番桁以内かつハイフンなしであれば保存できる' do
+      it '電話番号が11桁以内かつハイフンなしであれば保存できる' do
         @order_form.tel = 12_345_678_910
         expect(@order_form).to be_valid
       end
