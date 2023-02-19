@@ -6,13 +6,9 @@ RSpec.describe OrderForm, type: :model do
   end
   #user_idやitem_idといった外部キーに数値を直接渡すのは良い実装ではないため、FactoryBotでuser、item情報をそれぞれ作成
   before do
-    user = FactoryBot.create(:user)
-    @order_form = FactoryBot.build(:order_form, user_id: user.id)
-  end
-
-  before do
     item = FactoryBot.create(:item)
-    @order_form = FactoryBot.build(:order_form, item_id: item.id)
+    user = FactoryBot.create(:user)
+    @order_form = FactoryBot.build(:order_form, item_id: item.id,user_id: user.id)
   end
   #user_idやitem_idといった外部キーに数値を直接渡すのは良い実装ではないため、FactoryBotでuser、item情報をそれぞれ作成
 
