@@ -15,6 +15,7 @@ class Item < ApplicationRecord
   belongs_to :send_day
 
   with_options presence: true do
+    validates :user_id
     validates :image
     validates :name
     validates :text
@@ -23,7 +24,6 @@ class Item < ApplicationRecord
     validates :postage_id
     validates :first_add_id
     validates :send_day_id
-    validates :price
     validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, only_integer: true}
   end
 
